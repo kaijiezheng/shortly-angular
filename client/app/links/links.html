@@ -1,3 +1,19 @@
 <div id='container'>
   <!-- Your html here -->
+  <div class='navigation'>
+  <ul>
+    <li><a href='#/links' class='index'>All Links</a></li>
+    <li><a href='#/shorten' class='create'>Shorten</a></li>
+    <li><a href='' class='logout' ng-click="logOut()">Logout</a></li>
+  </ul>
+  </div>
+
+  <div ng-repeat="link in data.links | orderBy:'-visits'" class='info link'> 
+  <!-- make sure links are stored on scope -->
+    <img src='../assets/redirect_icon.png'/>
+    <div class='visits'><span class='count'>{{link.visits}}</span> Visits</div>
+    <div class='title'>{{link.title}}</div>
+    <div class='original'>{{link.url}}</div>
+    <a href='{{link.base_url}}/api/links/{{link.code}}'>{{link.base_url}}/{{link.code}}</a>
+  </div>
 </div>

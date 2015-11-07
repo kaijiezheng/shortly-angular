@@ -1,6 +1,15 @@
 <div id='container'>
-<!-- Your code here -->
-
+  <div class='navigation'>
+  <ul>
+    <li><a href='#/links' class='index'>All Links</a></li>
+    <li><a href='#/shorten' class='create'>Shorten</a></li>
+    <li><a href='#/logout' class='logout' ng-click="logOut()">Logout</a></li>
+  </ul>
+  </div>
+  <form name="inputUrl" ng-submit="postUrl()">
+      <input class='text' ng-model='url' type='text' name='url' ng-pattern="{{ rValidUrl }}">
+      <input type='submit' value='Shorten'>
+      <span ng-show="inputUrl.url.$error.pattern">Not a valid website.</span>
+  </form>
+  <img class='spinner' src='../assets/spiffygif_46x46.gif'>
 </div>
-
-
